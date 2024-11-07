@@ -1,46 +1,59 @@
-#include <iostream>
-#include <cmath>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
+#ifndef itzzRaghav
+#define dbg(...) ;
+#define debug(...) ;
+#define crndl ;
+#endif
 
-int largest_div(int n) {
-    if (n == 1) return 1;
-    if (n % 2 == 0) return n / 2; 
-    int sqrt_n = sqrt(n);
-    for (int i = sqrt_n; i >= 1; --i) {
-        if (n % i == 0) {
-            int d = n / i;
-            if (d < n) return d;
-            return i;
-        }
+#define int long long
+
+int32_t main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  const int N = 1e6;
+  vector<int> prime(N + 1, 1), lp(N + 1, -1);
+  prime[0] = prime[1] = 0;
+  for (int i = 2; i <= N; i++) {
+    if (!prime[i]) continue;
+    lp[i] = i;
+    for (int j = i + i; j <= N; j += i) {
+      prime[j] = 0;
+      if (lp[j] == -1) lp[j] = i;
     }
-    return 1;  
-}
+  }
+  
+  auto solve = [&]() {
+    int h, k;
+    cin >> h >> k;
 
+    int ans = 0;
+    int x = h;
 
-int steps(int h) {
-    int cnt = 0;
-    while (h > 1) {
-        h = largest_div(h);
-        cnt++;
+    while (x > 1) {
+      x /= lp[x];
+      ans++;
     }
-    return cnt;
-}
 
-int main() {
-    int T;
-    cin >> T;
-    while (T--) {
-        int H, K;
-        cin >> H >> K;
-        
-        int max_steps = 0;
-        for (int m = 1; m <= K; m++) {
-            int h = H * m;
-            max_steps = max(max_steps, steps(h));
-        }
-        cout << max_steps << endl;
+    x = k;
+    while (x > 1) {
+      ans++;
+      x /= 2;
     }
-    return 0;
+
+    cout << ans << "\n";
+  };
+  
+  int t = 1;
+  cin >> t;
+  
+  for (int tc = 1; tc <= t; tc++) {
+    debug(Testcase, tc);
+    solve();
+    crndl;
+  }
+  
+  return 0;
 }
