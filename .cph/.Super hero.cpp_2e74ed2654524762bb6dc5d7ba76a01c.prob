@@ -1,0 +1,1 @@
+{"name":"Local: Super hero","url":"c:\\Users\\HP\\OneDrive\\Desktop\\CF\\Super hero.cpp","tests":[{"id":1730919294564,"input":"3\n3 6\n8 12\n625 7\n2 84","output":"3\n6\n6\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\CF\\Super hero.cpp","group":"local","local":true}

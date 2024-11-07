@@ -1,0 +1,1 @@
+{"name":"Local: 159","url":"c:\\Users\\HP\\OneDrive\\Desktop\\CF\\159.C.cpp","tests":[{"id":1730904916017,"input":"3\n1 1\n2\n3\n3 2\n2 2 3\n1 3 2\n3 3\n3 1 5\n3 2 7","output":"NO\nYES\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\CF\\159.C.cpp","group":"local","local":true}
